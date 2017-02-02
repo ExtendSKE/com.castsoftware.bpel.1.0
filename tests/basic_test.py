@@ -7,7 +7,8 @@ class Test(unittest.TestCase):
         # create a DotNet analysis
         analysis = cast.analysers.test.UATestAnalysis('BPEL')
         # DotNet need a selection of a csproj or sln
-        analysis.add_selection('BPEL_Sample\Sample_From_Web\E4XSample.bpel')
+        analysis.add_selection('BPEL_Sample/Sample_From_Web/E4XSample.bpel')
+        analysis.result_file_path = 'C:\\Users\\ako\\Documents\\My Received Files\\com.castsoftware.bpel.1.0\\' + '_temp.uax'
         analysis.set_verbose()
         analysis.run()
         

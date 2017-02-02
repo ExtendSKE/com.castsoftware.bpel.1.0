@@ -38,8 +38,38 @@
         <inheritedCategory name="BPEL" />
         <inheritedCategory name="APM BPEL Module" />
     </type>
-
-
+    <type name="BPEL_Process" rid="6">
+                 <description>BPEL Process</description>
+                 <inheritedCategory name="BPEL"/>
+                 <inheritedCategory name="UAObject"/>
+                 <inheritedCategory name="APM BPEL Artifacts"/>
+                 <inheritedCategory name="ESQLSearchable"/>
+                 <inheritedCategory name="caseInsensitive"/>
+                 <inheritedCategory name="METRICABLE"/>
+                 <inheritedCategory name="APM All Artifacts"/>
+                 <!-- Added by AGR 10/22/2015 for diags SCRAIP- (uncommented processes) 
+                 <inheritedCategory name="BPEL_Process_Properties"/>-->
+               
+                 <!-- Links Activity to Process-->
+                 <tree parent="callLink" category="CalleeLinkable"/>
+                 
+                 <!-- Links Activity to Process-->
+                 <tree parent="callLink" category="CalleeLinkable"/>
+                 
+                 <tree parent="EnlightenBPEL" category="EnlightenTree"/>
+                 <tree parent="sourceFile" category="amtParentship"/>
+   </type>
+   <type name="BPEL partnerLinks" rid="7">
+        <description>BPEL partnerLinks</description> 
+        <inheritedCategory name="UAProject" />
+        <inheritedCategory name="BPEL" />
+        <inheritedCategory name="APM BPEL Module" />
+        <inheritedCategory name = "POSITIONABLE" />
+        <attribute name="INF_TYPE" intValue="1" />
+        <tree parent="EnlightenBPEL" category="EnlightenTree"/>
+   </type>
+  
+   
     <!-- Put your object  Types/categories bellow -->
 
     

@@ -67,6 +67,8 @@ def finding_tags_info(dict,data,list_found_tag,path):
                             #print(index1)
                             if flag == 1:
                                 tmp_list.append("begin_line:"+str(line_no)+" begin_column:"+str(index)+", end_line:"+str(line_no+index1-tmp_index)+" end_column:"+str(data[index1].find('>')))
+                                #tmp_list.append(str(line_no)+" begin_column:"+str(index)+", end_line:"+str(line_no+index1-tmp_index)+" end_column:"+str(data[index1].find('>')))
+                                
                             else:
                                 tmp_list.append("begin_line:"+str(line_no)+" begin_column:"+str(index))
                         else:
@@ -99,13 +101,14 @@ def cast_parser(filename):
     filename = filename.replace('.bpel','.txt')
     indexx = filename.rfind('\\')
     filename = filename[:indexx]+'/'+filename[indexx+1:]
-    
+    return dict,list_found_tag
+    '''
     for i in list_found_tag:
         cast.analysers.log.debug(i+ " -> ")
         for j in dict[i]:
             cast.analysers.log.debug(j+" ")
     #cast.analysers.log.debug(filename)
-    '''
+    
     dict_out=open(filename.replace('.bpel','.txt'),'w')
     for i in list_found_tag:
         dict_out.write(i+": "+str(dict[i])+"\n")
