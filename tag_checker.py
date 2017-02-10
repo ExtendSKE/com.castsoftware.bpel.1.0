@@ -1,7 +1,8 @@
 import xml.etree.ElementTree as ET
 import os
 import file_search as FS
-import cast.analysers.log
+import re
+#import cast.analysers.log
 def predefine_tags(path):
     #cast.analysers.log.debug(path+'')
     tag_file = open(path+'/tags.txt','r')
@@ -40,7 +41,7 @@ def finding_tags_info(dict,data,list_found_tag,path):
         tmp_list = []
         line_no =0
         #print(j)
-        tmp_list.append(path)
+        #tmp_list.append(path)
         for i in data:
             i=i[:-1]
             #print(i)
@@ -66,49 +67,75 @@ def finding_tags_info(dict,data,list_found_tag,path):
                                     index1 = index1+1;
                             #print(index1)
                             if flag == 1:
-                                tmp_list.append("begin_line:"+str(line_no)+" begin_column:"+str(index)+", end_line:"+str(line_no+index1-tmp_index)+" end_column:"+str(data[index1].find('>')))
+                                tmp_list.append("begin_line:"+str(line_no)+",begin_column:"+str(index)+",end_line:"+str(line_no+index1-tmp_index)+",end_column:"+str(data[index1].find('>')))
                                 #tmp_list.append(str(line_no)+" begin_column:"+str(index)+", end_line:"+str(line_no+index1-tmp_index)+" end_column:"+str(data[index1].find('>')))
-                                
                             else:
-                                tmp_list.append("begin_line:"+str(line_no)+" begin_column:"+str(index))
+                                tmp_list.append("begin_line:"+str(line_no)+",begin_column:"+str(index))
                         else:
                             if(i.find('/>')!=-1):
-                                tmp_list.append("begin_line:"+str(line_no)+" begin_column:"+str(index)+", end_line:"+str(line_no)+" end_column:"+str(i.find('>')))
+                                tmp_list.append("begin_line:"+str(line_no)+",begin_column:"+str(index)+",end_line:"+str(line_no)+",end_column:"+str(i.find('>')))
                             else:
-                                tmp_list.append("begin_line:"+str(line_no)+" begin_column:"+str(index))
+                                tmp_list.append("begin_line:"+str(line_no)+",begin_column:"+str(index))
                     else:
                         if i.find('</'+j+'>')!=-1:
-                            tmp_list.append("end_line:"+str(line_no)+" end_column:"+str(index))
+                            tmp_list.append("end_line:"+str(line_no)+",end_column:"+str(index))
         dict[j]=tmp_list
     return dict
+def find_tag_properties(root,tag_name,list_data):
+    if root is None:
+        return list_data
+    for i in root:
+        index1 = str(i.tag)
+        index1 =re.sub('{.*?}', '', index1)
+        if tag_name == index1:
+            data =str(i.attrib)
+            data = re.sub('{','',data)
+            data = re.sub('}','',data)
+            #print(i.attrib)
+            if len(data)!=0:
+                data = re.sub('[\s+]','',data)
+                data= re.sub("'","",data)
+                list_data.append(data)
+        list_data = find_tag_properties(i,tag_name,list_data)
+    return list_data
 def cast_parser(filename):
     path = os.getcwd()
-    cast.analysers.log.debug(path+'\n'+filename)
+    #cast.analysers.log.debug(path+'\n'+filename)
     tags = predefine_tags(path)
     list_found_tag = []
     tree = ET.parse(filename)
     root = tree.getroot()
+    #cast.analysers.log.debug(str(root))
     list_found_tag=finding_tags(root,tags,list_found_tag)
+    dict_tag = {}
+    for i in list_found_tag:
+        list_data = []
+        if i=="partnerLinks":
+            dict_tag[i] = find_tag_properties(root,"partnerLink",list_data)
+        elif i=="variables":
+            dict_tag[i] = find_tag_properties(root,"variable",list_data)
+        else:
+            dict_tag[i] = find_tag_properties(root,i,list_data)
     #for i in list_found_tag:
-    #    cast.analysers.log.debug(i)    
+    #    cast.analysers.log.debug(i)
     source_code_file = open(filename,'r')
     data = []
     for j in source_code_file:
         data.append(j)
     source_code_file.close()
     dict= {}
-    dict=finding_tags_info(dict,data,list_found_tag,filename)    
+    dict=finding_tags_info(dict,data,list_found_tag,filename)
     filename = filename.replace('.bpel','.txt')
     indexx = filename.rfind('\\')
     filename = filename[:indexx]+'/'+filename[indexx+1:]
-    return dict,list_found_tag
+    return dict_tag,dict,list_found_tag
     '''
     for i in list_found_tag:
         cast.analysers.log.debug(i+ " -> ")
         for j in dict[i]:
             cast.analysers.log.debug(j+" ")
     #cast.analysers.log.debug(filename)
-    
+
     dict_out=open(filename.replace('.bpel','.txt'),'w')
     for i in list_found_tag:
         dict_out.write(i+": "+str(dict[i])+"\n")
@@ -116,6 +143,8 @@ def cast_parser(filename):
     '''
 if __name__ == "__main__":
     #tags = tag_finder()
+    cast_parser("C:\ProgramData\CAST\CAST\Extensions\com.castsoftware.bpel.1.0\\tests\BPEL_Sample\Oracle_Samples\TravelProcess\Travel.bpel")
+    '''
     tags=predefine_tags()
     path = os.getcwd()
     file_list = FS.directory_search(path,'*.bpel')
@@ -138,3 +167,4 @@ if __name__ == "__main__":
             dict_out.write(i+": "+str(dict[i])+"\n")
         dict_out.close()
     #print(found_tags)
+    '''

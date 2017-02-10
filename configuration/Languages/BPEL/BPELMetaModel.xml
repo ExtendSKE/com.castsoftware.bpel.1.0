@@ -7,71 +7,109 @@
         <description>BPEL</description>
         <inheritedCategory name="APM Client Modules" />
     </category>
-
-    <category name="APM BPEL Artifacts" rid="1">
+    <category name="APM BPEL Artifacts" rid="20">
         <description>BPEL Artifacts</description>
        <inheritedCategory name="APM Client Language Artifacts"/>
 		<inheritedCategory name="APM Sources"/>
     </category>
-    
-
     <!-- BPEL group for enlighten -->
-    <type name="EnlightenBPEL" rid="3">
+     <!-- <type name="EnlightenBPEL" rid="3">
         <description>BPEL Enlighten</description>
-        <tree parent="EnlightenUniversalObjects" category="EnlightenTree" />
-    </type>
+         <tree parent="EnlightenUniversalObjects" category="EnlightenTree" />
+    </type> -->
 
     <!-- Define the new UA 'language'
-            for all the platform (cms analyzer)    
-    --> 
-    <category name="BPEL" rid="4">
+            for all the platform (cms analyzer)
+    -->
+     <category name = "BPEL_Sample" rid="32">
+       <description>BPEL Sample</description>
+       <property name="processWidth" type="integer" rid="6" merge="sum">
+		  <description>BPEL process Width</description>
+		  <attribute name="ACCESS_APPVIEW" intValue="1"/>
+		  <attribute name="ACCESS_CVS" intValue="1"/>
+		  <attribute name="ACCESS_HTML" intValue="1"/>
+		  <attribute name="INF_TYPE" intValue="1008210"/>
+		  <attribute name="INF_SUB_TYPE" intValue="12"/>
+	   </property>
+    </category>
+    <category name="BPEL" rid="48">
         <description>BPEL</description>
         <attribute name="extensions" stringValue="*.bpel" />
         <inheritedCategory name="UniversalLanguage" />
         <inheritedCategory name="CsvLanguage" />
     </category>
-
     <!-- BPEL project -->
-    <type name="BPEL Activity" rid="5">
-        <description>BPE Analyzer Project</description>
+    <type name="BPEL Activity" rid="55">
+        <description>BPEL Analyzer Project</description>
         <inheritedCategory name="UAProject" />
         <inheritedCategory name="BPEL" />
         <inheritedCategory name="APM BPEL Module" />
     </type>
-    <type name="BPEL_Process" rid="6">
-                 <description>BPEL Process</description>
-                 <inheritedCategory name="BPEL"/>
-                 <inheritedCategory name="UAObject"/>
-                 <inheritedCategory name="APM BPEL Artifacts"/>
-                 <inheritedCategory name="ESQLSearchable"/>
-                 <inheritedCategory name="caseInsensitive"/>
-                 <inheritedCategory name="METRICABLE"/>
-                 <inheritedCategory name="APM All Artifacts"/>
-                 <!-- Added by AGR 10/22/2015 for diags SCRAIP- (uncommented processes) 
-                 <inheritedCategory name="BPEL_Process_Properties"/>-->
-               
-                 <!-- Links Activity to Process-->
-                 <tree parent="callLink" category="CalleeLinkable"/>
-                 
-                 <!-- Links Activity to Process-->
-                 <tree parent="callLink" category="CalleeLinkable"/>
-                 
-                 <tree parent="EnlightenBPEL" category="EnlightenTree"/>
-                 <tree parent="sourceFile" category="amtParentship"/>
-   </type>
-   <type name="BPEL partnerLinks" rid="7">
-        <description>BPEL partnerLinks</description> 
-        <inheritedCategory name="UAProject" />
+    <!--<type name="BPEL_Process" rid="7">
+         <description>BPEL Process</description>
+         <inheritedCategory name="BPEL"/>
+         <inheritedCategory name="UAObject"/>
+         <inheritedCategory name="APM All Artifacts"/>
+   </type> -->
+   <type name="BPEL_partnerLinks" rid="61">
+        <description>BPEL partnerLinks</description>
+        <inheritedCategory name="UAObject" />
         <inheritedCategory name="BPEL" />
-        <inheritedCategory name="APM BPEL Module" />
-        <inheritedCategory name = "POSITIONABLE" />
-        <attribute name="INF_TYPE" intValue="1" />
-        <tree parent="EnlightenBPEL" category="EnlightenTree"/>
+        <inheritedCategory name="BPEL_Sample" />
+        <inheritedCategory name="APM BPEL Artifacts" />
+        <inheritedCategory name= "POSITIONABLE" />
    </type>
-  
-   
+   <type name="BPEL_invoke" rid="27">
+        <description>BPEL invoke</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="BPEL" />
+        <inheritedCategory name="BPEL_Sample" />
+        <inheritedCategory name="APM BPEL Artifacts" />
+        <inheritedCategory name= "POSITIONABLE" />
+   </type>
+   <type name="BPEL_receive" rid="22">
+        <description>BPEL receive</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="BPEL" />
+        <inheritedCategory name="BPEL_Sample" />
+        <inheritedCategory name="APM BPEL Artifacts" />
+        <inheritedCategory name= "POSITIONABLE" />
+   </type>
+   <type name="BPEL_pick" rid="91">
+        <description>BPEL pick</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="BPEL" />
+        <inheritedCategory name="BPEL_Sample" />
+        <inheritedCategory name="APM BPEL Artifacts" />
+        <inheritedCategory name= "POSITIONABLE" />
+   </type>
+   <type name="BPEL_Operation" rid="150">
+        <description>BPEL Operation</description>
+        <inheritedCategory name="UAObject" />
+        <inheritedCategory name="BPEL" />
+        <inheritedCategory name="BPEL_Sample" />
+        <inheritedCategory name="APM BPEL Artifacts" />
+    </type>
+    <type name="BPEL_Port" rid="34">
+         <description>BPEL Port</description>
+         <inheritedCategory name="UAObject" />
+         <inheritedCategory name="BPEL" />
+         <inheritedCategory name="BPEL_Sample" />
+         <inheritedCategory name="APM BPEL Artifacts" />
+     </type>
+     <type name="BPEL_Partnerlink_Name" rid="12">
+          <description>BPEL Partnerlink Name</description>
+          <inheritedCategory name="UAObject" />
+          <inheritedCategory name="BPEL" />
+          <inheritedCategory name="BPEL_Sample" />
+          <inheritedCategory name="APM BPEL Artifacts" />
+      </type>
+      <type name="BPEL_Partnerlink_Type" rid="13">
+           <description>BPEL Partnerlink Type</description>
+           <inheritedCategory name="UAObject" />
+           <inheritedCategory name="BPEL" />
+           <inheritedCategory name="BPEL_Sample" />
+           <inheritedCategory name="APM BPEL Artifacts" />
+       </type>
     <!-- Put your object  Types/categories bellow -->
-
-    
-    
 </metaModel>
