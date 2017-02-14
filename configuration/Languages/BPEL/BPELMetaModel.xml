@@ -55,6 +55,7 @@
         <description>BPEL partnerLinks</description>
         <inheritedCategory name="UAObject" />
         <inheritedCategory name="BPEL" />
+        <inheritedCategory name="APM IFPUG Transaction" />
         <inheritedCategory name="BPEL_Sample" />
         <inheritedCategory name="APM BPEL Artifacts" />
         <inheritedCategory name= "POSITIONABLE" />
@@ -63,6 +64,7 @@
         <description>BPEL invoke</description>
         <inheritedCategory name="UAObject" />
         <inheritedCategory name="BPEL" />
+        <inheritedCategory name="APM IFPUG Transaction" />
         <inheritedCategory name="BPEL_Sample" />
         <inheritedCategory name="APM BPEL Artifacts" />
         <inheritedCategory name= "POSITIONABLE" />
@@ -72,6 +74,7 @@
         <inheritedCategory name="UAObject" />
         <inheritedCategory name="BPEL" />
         <inheritedCategory name="BPEL_Sample" />
+        <inheritedCategory name="APM IFPUG Transaction" />
         <inheritedCategory name="APM BPEL Artifacts" />
         <inheritedCategory name= "POSITIONABLE" />
    </type>
@@ -79,6 +82,7 @@
         <description>BPEL pick</description>
         <inheritedCategory name="UAObject" />
         <inheritedCategory name="BPEL" />
+        <inheritedCategory name="APM IFPUG Transaction" />
         <inheritedCategory name="BPEL_Sample" />
         <inheritedCategory name="APM BPEL Artifacts" />
         <inheritedCategory name= "POSITIONABLE" />
@@ -88,11 +92,13 @@
         <inheritedCategory name="UAObject" />
         <inheritedCategory name="BPEL" />
         <inheritedCategory name="BPEL_Sample" />
+        <inheritedCategory name="APM IFPUG Transaction" />
         <inheritedCategory name="APM BPEL Artifacts" />
     </type>
     <type name="BPEL_Port" rid="34">
          <description>BPEL Port</description>
          <inheritedCategory name="UAObject" />
+         <inheritedCategory name="APM IFPUG Transaction" />
          <inheritedCategory name="BPEL" />
          <inheritedCategory name="BPEL_Sample" />
          <inheritedCategory name="APM BPEL Artifacts" />
@@ -101,6 +107,7 @@
           <description>BPEL Partnerlink Name</description>
           <inheritedCategory name="UAObject" />
           <inheritedCategory name="BPEL" />
+          <inheritedCategory name="APM IFPUG Transaction" />
           <inheritedCategory name="BPEL_Sample" />
           <inheritedCategory name="APM BPEL Artifacts" />
       </type>
@@ -108,8 +115,9 @@
            <description>BPEL Partnerlink Type</description>
            <inheritedCategory name="UAObject" />
            <inheritedCategory name="BPEL" />
+           <inheritedCategory name="APM IFPUG Transaction" />
            <inheritedCategory name="BPEL_Sample" />
            <inheritedCategory name="APM BPEL Artifacts" />
-       </type>
+      </type>
     <!-- Put your object  Types/categories bellow -->
 </metaModel>
