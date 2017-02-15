@@ -70,6 +70,7 @@
         <description>BPEL partnerLinks</description>
         <inheritedCategory name="UAObject" />
         <inheritedCategory name="BPEL" />
+        <inheritedCategory name="APM IFPUG Transaction" />
         <inheritedCategory name="BPEL_Sample" />
         <inheritedCategory name="APM BPEL Artifacts" />
         <tree parent="EnlightenBPEL" category="EnlightenTree" />
@@ -78,6 +79,7 @@
         <description>BPEL invoke</description>
         <inheritedCategory name="UAObject" />
         <inheritedCategory name="BPEL" />
+        <inheritedCategory name="APM IFPUG Transaction" />
         <inheritedCategory name="BPEL_Sample" />
         <inheritedCategory name="APM BPEL Artifacts" />
         <tree parent="EnlightenBPEL" category="EnlightenTree" />
@@ -87,6 +89,7 @@
         <inheritedCategory name="UAObject" />
         <inheritedCategory name="BPEL" />
         <inheritedCategory name="BPEL_Sample" />
+        <inheritedCategory name="APM IFPUG Transaction" />
         <inheritedCategory name="APM BPEL Artifacts" />
         <tree parent="EnlightenBPEL" category="EnlightenTree" />
     </type>
@@ -94,6 +97,7 @@
         <description>BPEL pick</description>
         <inheritedCategory name="UAObject" />
         <inheritedCategory name="BPEL" />
+        <inheritedCategory name="APM IFPUG Transaction" />
         <inheritedCategory name="BPEL_Sample" />
         <inheritedCategory name="APM BPEL Artifacts" />
         <tree parent="EnlightenBPEL" category="EnlightenTree" />
@@ -103,31 +107,36 @@
         <inheritedCategory name="UAObject" />
         <inheritedCategory name="BPEL" />
         <inheritedCategory name="BPEL_Sample" />
+        <inheritedCategory name="APM IFPUG Transaction" />
         <inheritedCategory name="APM BPEL Artifacts" />
         <tree parent="EnlightenBPEL" category="EnlightenTree" />
     </type>
     <type name="BPEL_Port" rid="34">
-        <description>BPEL Port</description>
-        <inheritedCategory name="UAObject" />
-        <inheritedCategory name="BPEL" />
-        <inheritedCategory name="BPEL_Sample" />
-        <inheritedCategory name="APM BPEL Artifacts" />
-        <tree parent="EnlightenBPEL" category="EnlightenTree" />
-    </type>
-    <type name="BPEL_Partnerlink_Name" rid="12">
-        <description>BPEL Partnerlink Name</description>
-        <inheritedCategory name="UAObject" />
-        <inheritedCategory name="BPEL" />
-        <inheritedCategory name="BPEL_Sample" />
-        <inheritedCategory name="APM BPEL Artifacts" />
-        <tree parent="EnlightenBPEL" category="EnlightenTree" />
-    </type>
-    <type name="BPEL_Partnerlink_Type" rid="13">
-        <description>BPEL Partnerlink Type</description>
-        <inheritedCategory name="UAObject" />
-        <inheritedCategory name="BPEL" />
-        <inheritedCategory name="BPEL_Sample" />
-        <inheritedCategory name="APM BPEL Artifacts" />
-        <tree parent="EnlightenBPEL" category="EnlightenTree" />
-    </type>
+         <description>BPEL Port</description>
+         <inheritedCategory name="UAObject" />
+         <inheritedCategory name="APM IFPUG Transaction" />
+         <inheritedCategory name="BPEL" />
+         <inheritedCategory name="BPEL_Sample" />
+         <inheritedCategory name="APM BPEL Artifacts" />
+         <tree parent="EnlightenBPEL" category="EnlightenTree" />
+     </type>
+     <type name="BPEL_Partnerlink_Name" rid="12">
+          <description>BPEL Partnerlink Name</description>
+          <inheritedCategory name="UAObject" />
+          <inheritedCategory name="BPEL" />
+          <inheritedCategory name="APM IFPUG Transaction" />
+          <inheritedCategory name="BPEL_Sample" />
+          <inheritedCategory name="APM BPEL Artifacts" />
+         <tree parent="EnlightenBPEL" category="EnlightenTree" />
+      </type>
+      <type name="BPEL_Partnerlink_Type" rid="13">
+           <description>BPEL Partnerlink Type</description>
+           <inheritedCategory name="UAObject" />
+           <inheritedCategory name="BPEL" />
+           <inheritedCategory name="APM IFPUG Transaction" />
+           <inheritedCategory name="BPEL_Sample" />
+           <inheritedCategory name="APM BPEL Artifacts" />
+           <tree parent="EnlightenBPEL" category="EnlightenTree" />
+      </type>
+    <!-- Put your object  Types/categories bellow -->
 </metaModel>

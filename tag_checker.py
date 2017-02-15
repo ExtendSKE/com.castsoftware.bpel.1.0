@@ -1,17 +1,11 @@
 import xml.etree.ElementTree as ET
-import os
 import file_search as FS
 import re
+import cast.analysers.log
 #import cast.analysers.log
-def predefine_tags(path):
+def predefine_tags():
     #cast.analysers.log.debug(path+'')
-    tag_file = open(path+'/tags.txt','r')
-    tags = []
-    for i in tag_file:
-        i=i[:-1]
-        if len(i) !=0:
-            tags.append(i)
-    tag_file.close()
+    tags = ["receive","reply","variables","assign","invoke","partnerLinks"]
     return tags
 def finding_tags(root,tags,list_found_tag):  #finding all tags which are present in source-code
     if root is None:
@@ -19,8 +13,6 @@ def finding_tags(root,tags,list_found_tag):  #finding all tags which are present
     for i in root:
         #print(i.tag)
         for j in tags:
-            j = j[1:]
-            j= j [:-1]
             index = i.tag.find(j)
             #print(index)
             if index!=-1:
@@ -99,9 +91,8 @@ def find_tag_properties(root,tag_name,list_data):
         list_data = find_tag_properties(i,tag_name,list_data)
     return list_data
 def cast_parser(filename):
-    path = os.getcwd()
     #cast.analysers.log.debug(path+'\n'+filename)
-    tags = predefine_tags(path)
+    tags = predefine_tags()
     list_found_tag = []
     tree = ET.parse(filename)
     root = tree.getroot()
